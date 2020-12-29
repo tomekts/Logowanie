@@ -16,18 +16,22 @@ public class UserControler {
     @Autowired
     UserRepository userRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/users")
     public List<User> getUsers(){
         System.out.println("wyswietlono uzytkowników");
         return userRepository.findAll();
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/user/id/{id}")
     public Optional<User> getSingleUser(@PathVariable int id){
         System.out.println("wyswietlono uzytkownika o ik"+ id);
         return userRepository.findById(id);
     }
 
-    @PostMapping("/user/")
+
+    @PostMapping("/user")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity addUser (@RequestBody User user){
         List<User> userFromDb = userRepository.findByName(user.getName().toLowerCase());
 
@@ -41,7 +45,7 @@ public class UserControler {
     }
 
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping  ("/user/name/{name}")
     public ResponseEntity deleteUserByName (@PathVariable String name){
 

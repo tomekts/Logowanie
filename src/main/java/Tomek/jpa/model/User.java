@@ -1,6 +1,7 @@
 package Tomek.jpa.model;
 
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,7 +18,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     private String name;
+    @NotNull
     private String password;
 
 
