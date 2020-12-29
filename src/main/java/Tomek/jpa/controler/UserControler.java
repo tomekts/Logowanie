@@ -29,9 +29,10 @@ public class UserControler {
 
     @PostMapping("/user/")
     public ResponseEntity addUser (@RequestBody User user){
-        List<User> userFromDb = userRepository.findByName(user.getName());
+        List<User> userFromDb = userRepository.findByName(user.getName().toLowerCase());
 
         if (userFromDb.isEmpty()) {
+            user.setName(user.getName().toLowerCase());
             User userSaved = userRepository.save(user);
             System.out.println("dodano uzytkowika " + user);
             return ResponseEntity.ok(userSaved);

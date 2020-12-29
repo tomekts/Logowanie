@@ -22,7 +22,7 @@ public class User {
 
 
     public User(String name, String password) {
-        this.name = name;
+        this.name = name.toLowerCase();
         this.password = password;
-    }
+         }
 }
