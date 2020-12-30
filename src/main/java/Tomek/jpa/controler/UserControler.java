@@ -31,7 +31,8 @@ public class UserControler {
 
 
     @PostMapping("/user")
-    @CrossOrigin(origins = "http://localhost:3000")
+//    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "http://192.168.1.33:3000")
     public ResponseEntity addUser (@RequestBody User user){
         List<User> userFromDb = userRepository.findByName(user.getName().toLowerCase());
 
