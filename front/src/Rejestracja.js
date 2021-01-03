@@ -19,7 +19,7 @@ class Rejestracja extends Component {
 registerUser(username, password) {
   console.log(username + password)
  // fetch('http://localhost:8080/user',{
-  fetch('http://192.168.1.33:8080/user',{
+  fetch('http://192.168.1.127:8080/user',{
     method: 'POST',
     headers: {
         'Accept': 'application/json',
