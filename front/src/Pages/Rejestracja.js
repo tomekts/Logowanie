@@ -1,18 +1,14 @@
 import { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import './Rejestracja.css'
-
-import RejestracjaAlerty from './RejestracjaAlerty.js';
+import '../Style/Rejestracja.css'
 
 
 
 class Rejestracja extends Component {
-
   handleSubmit = event => {
     event.preventDefault();
     this.registerUser(event.target.login.value, event.target.password.value);
-
 }
 
 
@@ -61,22 +57,14 @@ registerUser(username, password) {
             <Form.Control autoFocus name = "password"/>
             </Form.Group>    
 
-
             <Button block size = "lg" type = "submit">
             Register
-            </Button>
-
-
-         
+            </Button>         
      </Form>
      
      
 
     </div>
-    <div>kot</div>
-      <RejestracjaAlerty />
-
-
       </>
     )
   }
