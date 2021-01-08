@@ -7,14 +7,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 public class UserControler {
+    final String ip="http://192.168.1.127:8080";
+
     @Autowired
     UserRepository userRepository;
+
+
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/users")
@@ -31,8 +34,7 @@ public class UserControler {
 
 
     @PostMapping("/user")
-//    @CrossOrigin(origins = "http://localhost:3000")
-    @CrossOrigin(origins = "http://192.168.1.127:3000")
+    @CrossOrigin(origins = {ip, "http://localhost:3000"})
     public ResponseEntity addUser (@RequestBody User user){
         List<User> userFromDb = userRepository.findByName(user.getName().toLowerCase());
 

@@ -1,8 +1,23 @@
 import { Component } from 'react';
-import Form from 'react-bootstrap/Form'
 
 
-class RejestracjaAlerty extends Component {}
+
+class RejestracjaAlerty extends Component {
+
+render(){
+    return(
+        <>
+    <div className="RegistrationAlert">
+
+    kot i mały pies
+
+    </div>
+    </>
+    )
+}
+
+
+}
 
 
 

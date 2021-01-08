@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './Rejestracja.css'
 
+import RejestracjaAlerty from './RejestracjaAlerty.js';
+
 
 
 class Rejestracja extends Component {
@@ -12,8 +14,6 @@ class Rejestracja extends Component {
     this.registerUser(event.target.login.value, event.target.password.value);
 
 }
-
-
 
 
 registerUser(username, password) {
@@ -35,16 +35,21 @@ registerUser(username, password) {
     if(response.status === 200){
       console.log("dodano uzytkownjika")
       alert('dodano uzytkownika')
-    }else{
+    }else if(response.status === 422){
       console.log('uzytkownik nie został zarejestrownay')
-      alert('uzytkownik niezarejstrowany')
+      alert('uzytkownik juz istenieje')
+    }else{
+      console.log('cos poszło nie tak xD')
+      alert('wystąpił poważny bład :D')
     }
   })
 }
 
 
   render(){
-    return <div className="Register">
+    return (
+      <>
+    <div className="Register">
       <Form onSubmit = { this.handleSubmit } >
        <Form.Group controlId = "login" size = "lg">
             <Form.Label> Login </Form.Label>
@@ -68,12 +73,12 @@ registerUser(username, password) {
      
 
     </div>
+    <div>kot</div>
+      <RejestracjaAlerty />
 
 
-
-
-
-
+      </>
+    )
   }
 }
 
